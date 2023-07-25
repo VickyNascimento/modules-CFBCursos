@@ -14,10 +14,7 @@ class login{
     static estilocss=null
     // "login.vick-nascimento.repl.co/?matricula=123&senha=321"
     static login=(callback,notCallback,config=null)=>{
-        sessionStorage.setItem("Logado","false")
-        sessionStorage.setItem("matLogado","")
-        sessionStorage.setItem("nomeLogado","")
-        sessionStorage.setItem("acessoLogado","")
+        this.limparSessao()
         if(config!=null){
             this.config=config
         }   
@@ -98,10 +95,7 @@ class login{
         btn_cancelar.innerText='cancelar'
         btn_cancelar.id="btn_cancelar"
         btn_cancelar.addEventListener("click",()=>{
-            sessionStorage.setItem("Logado","false")
-            sessionStorage.setItem("matLogado","")
-            sessionStorage.setItem("nomeLogado","")
-            sessionStorage.setItem("acessoLogado","")
+            this.limparSessao()
             this.fechar()
         })
         botoesLogin.appendChild(btn_cancelar)
@@ -141,10 +135,7 @@ class login{
                 this.callback()
                 this.fechar()
             }else{
-                sessionStorage.setItem("Logado","false")
-                sessionStorage.setItem("matLogado","")
-                sessionStorage.setItem("nomeLogado","")
-                sessionStorage.setItem("acessoLogado","")
+                this.limparSessao()
                 this.NotCallback()
             }
         })
